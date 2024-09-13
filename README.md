@@ -1,4 +1,4 @@
-# Projeto API Pessoa - Athena
+# Projeto API Pessoa - Athenas
 
 Este projeto implementa uma API RESTful para gerenciar a entidade `Pessoa`, com operações de **inclusão**, **alteração**, **exclusão** e **pesquisa** de dados, seguindo o padrão Controller → Service → Task. O projeto utiliza **Django** com **PostgreSQL** como banco de dados e está configurado para rodar em contêineres **Docker**.
 
