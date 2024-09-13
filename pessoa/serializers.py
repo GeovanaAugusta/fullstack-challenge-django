@@ -12,8 +12,12 @@ class PessoaDTO(serializers.ModelSerializer):
         return value
 
     def validate_cpf(self, value):
-        if len(value) != 11:
-            raise serializers.ValidationError("O CPF deve conter exatamente 11 dígitos.")
+        if self.instance:
+            if Pessoa.objects.filter(cpf=value).exclude(id=self.instance.id).exists():
+                raise serializers.ValidationError("CPF já existe para outra pessoa.")
+        else:
+            if Pessoa.objects.filter(cpf=value).exists():
+                raise serializers.ValidationError("CPF já existe.")
         return value
 
     def validate_sexo(self, value):
